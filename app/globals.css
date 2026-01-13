@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 10%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-base text-primary font-sans;
+    font-family: 'Inter UI', system-ui, sans-serif;
+    background-color: #F8F9FC;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  h2 {
+    font-size: 20px;
+  }
+  h3 {
+    font-size: 16px;
+  }
+  p, span, div {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* 表格行悬停效果 - 0.2s opacity过渡 */
+  .table-row-hover {
+    @apply transition-opacity duration-200;
+  }
+  .table-row-hover:hover {
+    background-color: rgba(241, 243, 245, 0.05);
+  }
+  
+  /* 状态标签动画 - 0.15s缩放动画 */
+  .status-badge {
+    animation: status-badge 0.15s ease-out;
+  }
+  
+  /* 交互反馈颜色 */
+  .hover-interactive:hover {
+    background-color: #F1F3F5;
+  }
+  
+  .active-interactive:active {
+    background-color: #E9ECEF;
+  }
+}
+
+/* 弹窗动画 */
+@keyframes modal-in {
+  0% {
+    transform: scale(0.9) translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 状态标签动画 */
+@keyframes status-badge {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
